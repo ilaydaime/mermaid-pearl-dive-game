@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mermaid Pearl Dive</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+  <div id="hud">
+    <div class="sb"><div class="sl">Score</div><div class="sv" id="sv">0</div></div>
+    <div class="sb"><div class="sl">Best</div><div class="sv" id="hv">0</div></div>
+    <div class="sb"><div class="sl">Level</div><div class="sv" id="lv">1</div></div>
+    <div class="sb"><div class="sl">Pearls</div><div class="sv" id="pv">0/0</div></div>
+    
+    <div class="sb"><div class="sl">💎 Gems</div><div class="sv" id="dv">0</div></div>
+    <div class="sb" id="pausebtn" style="cursor:pointer; background:rgba(220, 38, 38, 0.4); transition:0.2s;">⏸</div>
+
+    <div id="breath-wrap">
+      <div id="breath-lbl"><span>🫧 Breath</span><span id="surf-hint"></span></div>
+      <div id="breath-track"><div id="breath-fill"></div></div>
+    </div>
+  </div>
+
+  <canvas id="gc"></canvas>
+
+  <div id="current-indicator">
+    <span id="ci-arrow">→</span>
+    <span id="ci-label">Current</span>
+  </div>
+
+  <div id="overlay">
+    <div class="ov-card">
+      <h1>🧜‍♀️ Mermaid Pearl Dive</h1>
+      <p>Collect pearls, surface to breathe, avoid sea creatures. Watch out for the current!</p>
+      <p class="hint">Arrow keys / WASD to swim</p>
+      <div id="hs-line"></div>
+      <button id="startbtn">Dive In 🌊</button>
+    </div>
+  </div>
+
+  <div id="gameover" class="hidden">
+    <div class="ov-card">
+      <h1>🥺 Game Over</h1>
+      <p id="go-msg"></p>
+      <div class="stats">
+        <div>Score: <b id="go-score">0</b></div>
+        <div>Level: <b id="go-level">1</b></div>
+        <div>Best: <b id="go-best">0</b></div>
+      </div>
+      <button id="retrybtn">Try Again</button>
+    </div>
+  </div>
+
+  <div id="pausemenu" class="hidden" style="position:absolute; inset:0; background:rgba(15,12,40,0.9); z-index:20; display:flex; align-items:center; justify-content:center;">
+    <div class="ov-card" style="max-width: 420px;">
+      <h1>⏸ Paused</h1>
+      <button id="resumebtn" style="margin-bottom:10px; width:100%;">▶ Resume</button>
+      <button id="restartbtn" style="background:linear-gradient(135deg, #f59e0b, #dc2626); width:100%;">🔄 Restart</button>
+      
+      <hr style="margin:20px 0; border:0; border-top:1px solid rgba(139, 92, 246, 0.3);">
+      
+      <h2>🛍️ Mermaid Boutique</h2>
+      <p style="font-size:16px; color:#fde68a;">Your Diamonds: <b id="shop-dia">0</b> 💎</p>
+      
+      <div id="shop-container" style="display:flex; flex-direction:column; gap:10px; margin-top:15px;">
+        </div>
+    </div>
+  </div>
+
+</div>
+<script src="sketch.js"></script>
+</body>
+</html>
